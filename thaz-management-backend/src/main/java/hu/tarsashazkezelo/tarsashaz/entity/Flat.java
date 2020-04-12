@@ -1,10 +1,12 @@
 package hu.tarsashazkezelo.tarsashaz.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,11 +25,18 @@ public class Flat {
     @Column
     private Integer floorNumber;
 
+    @Enumerated(EnumType.STRING) // tulaj, bérlő, lakó
+    private Role nameOfActualUser;
+
     @ManyToOne
     private Building building;
 
     public Flat(Long id) {
         this.id = id;
     }
+
+    @OneToMany(mappedBy = "flat", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<User> users;
 
 }

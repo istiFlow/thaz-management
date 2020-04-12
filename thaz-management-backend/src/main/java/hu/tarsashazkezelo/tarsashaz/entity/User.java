@@ -55,4 +55,6 @@ public class User {
     @ManyToMany
     private List<BuildingDocument> buildingDocuments;
 
+    @ManyToOne
+    private Flat flat;
 }
