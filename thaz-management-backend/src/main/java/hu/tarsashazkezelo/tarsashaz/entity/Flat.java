@@ -35,8 +35,4 @@ public class Flat {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "flat", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<User> users;
-
 }

@@ -18,9 +18,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Kozos_kepviselo_teljes_neve")
-    private String fullNameOfRepresentative;
-
     @Column(name = "cegnev")
     private String companyName;
 
@@ -55,6 +52,6 @@ public class User {
     @ManyToMany
     private List<BuildingDocument> buildingDocuments;
 
-    @ManyToOne
-    private Flat flat;
+    @ManyToMany
+    private List<Flat> flat;
 }
