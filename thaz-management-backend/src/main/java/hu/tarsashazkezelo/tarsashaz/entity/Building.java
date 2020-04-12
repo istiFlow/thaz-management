@@ -1,10 +1,12 @@
 package hu.tarsashazkezelo.tarsashaz.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +17,7 @@ public class Building {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column
     private String address;
@@ -31,5 +33,11 @@ public class Building {
 
     @Column
     private Integer parkingSpaces;
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Flat> flats;
+
+
 
 }

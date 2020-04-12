@@ -5,31 +5,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Data
-@Table(name = "building_documents")
+@Table(name = "flats")
 @AllArgsConstructor
 @NoArgsConstructor
-public class BuildingDocument {
+public class Flat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String name;
+    private Integer flatSize;
 
     @Column
-    private LocalDate dayOfUploading;
-
-    @Column
-    private LocalDate dayOfModification;
-
-    @Column
-    private LocalDate dayOfDeletion;
+    private Integer floorNumber;
 
     @ManyToOne
     private Building building;
+
+    public Flat(Long id) {
+        this.id = id;
+    }
+
 }

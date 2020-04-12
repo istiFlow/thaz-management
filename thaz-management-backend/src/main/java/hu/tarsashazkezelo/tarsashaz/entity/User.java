@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +16,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "Kozos_kepviselo_teljes_neve")
     private String fullNameOfRepresentative;
@@ -47,5 +48,11 @@ public class User {
 
     @Column // tulajdoni hányad pl 40-60%
     private Integer ownership;
+
+    @ManyToMany
+    private List<Building> building;
+
+    @ManyToMany
+    private List<BuildingDocument> buildingDocuments;
 
 }
