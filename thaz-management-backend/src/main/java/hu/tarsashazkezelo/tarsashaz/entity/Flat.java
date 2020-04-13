@@ -31,6 +31,9 @@ public class Flat {
     @ManyToOne
     private Building building;
 
+    @ManyToOne
+    private User user;
+
     public Flat(Long id) {
         this.id = id;
     }

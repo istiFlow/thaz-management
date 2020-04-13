@@ -50,8 +50,5 @@ public class User {
     private List<Building> building;
 
     @ManyToMany
-    private List<BuildingDocument> buildingDocuments;
-
-    @ManyToMany
     private List<Flat> flat;
 }

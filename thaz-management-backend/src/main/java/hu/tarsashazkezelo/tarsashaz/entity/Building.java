@@ -38,6 +38,7 @@ public class Building {
     @JsonIgnore
     private List<Flat> flats;
 
-
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
+    private List<BuildingDocument> buildingDocuments;
 
 }
