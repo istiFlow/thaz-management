@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Column;
 
 @Data
 @NoArgsConstructor
