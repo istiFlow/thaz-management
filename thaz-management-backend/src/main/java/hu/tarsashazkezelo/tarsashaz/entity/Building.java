@@ -2,6 +2,7 @@ package hu.tarsashazkezelo.tarsashaz.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Table(name = "buildings")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Building {
 
     @Id
@@ -39,6 +41,7 @@ public class Building {
     private List<Flat> flats;
 
     @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<BuildingDocument> buildingDocuments;
 
 }
