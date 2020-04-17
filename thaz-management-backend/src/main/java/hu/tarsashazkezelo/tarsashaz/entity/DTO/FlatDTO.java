@@ -10,10 +10,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,12 +25,12 @@ public class FlatDTO {
     private OwnerDTO ownerDTO;
 
     public FlatDTO(Flat model){
-        this.setId(model.getId());
-        this.setFlatSize(model.getFlatSize());
-        this.setFloorNumber(model.getFloorNumber());
-        this.setNameOfActualUser(model.getNameOfActualUser());
-        this.setBuildingDTO(new BuildingDTO(model.getBuilding()));
-        this.setOwnerDTO(new OwnerDTO(model.getUser()));
+        this.id = model.getId();
+        this.flatSize = model.getFlatSize();
+        this.floorNumber = model.getFloorNumber();
+        this.nameOfActualUser = model.getNameOfActualUser();
+        this.buildingDTO = new BuildingDTO(model.getBuilding());
+        this.ownerDTO = new OwnerDTO(model.getUser());
     }
 
     public Flat toEntity() {
