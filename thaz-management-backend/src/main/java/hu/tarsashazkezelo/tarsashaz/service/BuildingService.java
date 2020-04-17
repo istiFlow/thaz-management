@@ -35,9 +35,9 @@ NEEDS VALIDATION
                 .orElseThrow(() -> new BuildingNotFoundException(id));
     }
 
-    public Building updateBuildingDetails(Long id, Building building) {
-        building.setId(id);
-        return buildingRepository.save(building);
+    public BuildingDTO updateBuildingDetails(Long id, BuildingDTO buildingDTO) {
+        buildingDTO.setId(id);
+        return new BuildingDTO(buildingRepository.save(buildingDTO.toEntity()));
     }
 
     public void deleteBuilding(Long id) {
